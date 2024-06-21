@@ -2,11 +2,12 @@ import './App.css';
 import  useDisplay  from './myHook/useDisplay'
 import { a, b } from './components/Products/Products';
 import Products from './components/Products/Products';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 function App() {
   console.log(a, b);
   let [height,width] = useDisplay();
   let [cart,setCart] = useState({});
+  const CartContext = useContext();
   function increaseQuantity(product){
     const newCart = {...cart}
     if(newCart[product.id])
@@ -31,8 +32,9 @@ function App() {
   }
   return (
     <div className="App">
-          <div className="display">height:{height} width:{width}</div>
-      <Products />
+      <CartContext.Provider value={{cart,increaseQuantity,decreaseQuantity}}>
+        <Products />
+      </CartContext.Provider>
     </div>
   );
 }
