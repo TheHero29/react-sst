@@ -1,7 +1,8 @@
 import ProductCard from "../ProductCard/ProductCard";
 import Effect from "../Effect/Effect";
 import { useState, useEffect } from "react";
-import useDisplay from "../../myHook/useDisplay";
+// import useDisplay from "../../myHook/useDisplay";
+import React from "react";
 function Products() {
   console.log("Products")
     // const products = [
@@ -49,7 +50,7 @@ function Products() {
           <div><Effect /></div>
             {
                 products.map(function (item,index) {
-                    return (<ProductCard key ={index} title={item.title} price={item.price} image={item.image}/>)
+                    return (<ProductCard key ={index} product={item}/>)
                 })
             }
         </div>
@@ -57,7 +58,7 @@ function Products() {
 }
 export let a = 10;
 export let b = 20;
-export default Products;
+export default React.memo(Products);
 // Javascript XML 
 
 //ProductCard(title)
