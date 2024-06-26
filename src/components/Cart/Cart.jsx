@@ -6,15 +6,12 @@ const Cart = () => {
     const cart  = useSelector((state)=>{
         return state.items;
     })
-    const state = useSelector((state)=>{
-        return state
-    })
-    console.log(state);
+    
   return (
     <div>
         {
-        Object.values(cart).map(function(item,index){
-            return(<CartCard key={index} item={item}/>)
+        Object.values(cart).map(function(item){
+            return(<CartCard key={item.id} item={item}/>)
         })
         }
     </div>

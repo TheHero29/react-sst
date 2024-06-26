@@ -1,8 +1,23 @@
 import { createStore } from 'redux';
 import { omit } from 'lodash'
+const ADD_TO_CART = "ADD_TO_CART"
+const REMOVE_FROM_CART = "REMOVE_FROM_CART"
+export function addToCart(product){
+    return {
+        type:ADD_TO_CART,
+        payload: product
+    }
+}
+
+export function removeFromCart(product){
+    return {
+        type:REMOVE_FROM_CART,
+        payload: product
+    }
+}
 function CartReducer(state = {items:{}},action){
     switch(action.type){
-        case 'ADD_TO_CART':{
+        case ADD_TO_CART:{
             const product = action.payload;
             // doesn't making a copy everytime to make a rerender instead of modifying it cause lot of memory waste
             if(state.items[product.id])

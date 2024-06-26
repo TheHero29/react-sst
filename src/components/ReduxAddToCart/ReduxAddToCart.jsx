@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { addToCart,removeFromCart } from '../../store';
 function ReduxAddToCart({product}) {
     //useSelector 
     // how is useSelector taking state as input?
@@ -11,11 +12,11 @@ function ReduxAddToCart({product}) {
     let dispatch = useDispatch();
     function increase(){
         //dispatch {type,payload}
-        dispatch({type:'ADD_TO_CART',payload:product})
+        dispatch(addToCart(product))
     }
     function decrease(){
         //dispatch {type,payload}
-        dispatch({type:'REMOVE_FROM_CART',payload:product})
+        dispatch(removeFromCart(product))
     }
 
     // const quantity = cart[product.id] ? cart[product.id].quantity : 0;
