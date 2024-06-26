@@ -47,7 +47,8 @@ function Products() {
     }),[]);
     return (
       <div>
-          <div><Effect /></div>
+          {/* <div><Effect /></div> */}
+          <button>Cart</button>
             {
                 products.map(function (item,index) {
                     return (<ProductCard key ={index} product={item}/>)

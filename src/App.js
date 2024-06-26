@@ -2,6 +2,7 @@ import './App.css';
 import  useDisplay  from './myHook/useDisplay'
 import { a, b } from './components/Products/Products';
 import Products from './components/Products/Products';
+import Cart from './components/Cart/Cart';
 import { useState } from 'react';
 import { CartContext } from './contexts/CartContext';
 function App() {
@@ -38,6 +39,7 @@ function App() {
       <CartContext.Provider value={{cart,increaseQuantity,decreaseQuantity}}>
         <Products />
         {/* <Products cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity}/> */}
+        <Cart />
       </CartContext.Provider>
       
     </div>
