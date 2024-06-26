@@ -1,5 +1,5 @@
-import {createStore} from 'react'
-import { omit } from 'loadash'
+import { createStore } from 'redux';
+import { omit } from 'lodash'
 function CartReducer(state = {items:{}},action){
     switch(action.type){
         case 'ADD_TO_CART':{

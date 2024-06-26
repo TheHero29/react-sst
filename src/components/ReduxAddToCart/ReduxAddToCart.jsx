@@ -1,21 +1,24 @@
-import { useSelector,useDispatch } from "react";
-import { CartContext } from "../../contexts/CartContext";
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 function ReduxAddToCart({product}) {
     //useSelector 
     // how is useSelector taking state as input?
-    let cart = useSelector((state)=>{
-        return state.item;
+    let quantity = useSelector((state)=>{
+        // return state.item[product.id] ? state.item[product.id].quantity : 0;
+        return state.items[product.id]?.quantity || 0;
     })    
+
+    let dispatch = useDispatch();
     function increase(){
         //dispatch {type,payload}
-        dispatchEvent({type:'ADD_TO_CART',payload:product})
+        dispatch({type:'ADD_TO_CART',payload:product})
     }
     function decrease(){
         //dispatch {type,payload}
-        dispatchEvent({type:'REMOVE_FROM_CART',payload:product})
+        dispatch({type:'REMOVE_FROM_CART',payload:product})
     }
 
-    const quantity = cart[product.id] ? cart[product.id].quantity : 0;
+    // const quantity = cart[product.id] ? cart[product.id].quantity : 0;
     if(quantity===0)
         return (
     <div>
