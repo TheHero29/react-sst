@@ -6,7 +6,7 @@ function ReduxAddToCart({product}) {
     // how is useSelector taking state as input?
     let quantity = useSelector((state)=>{
         // return state.item[product.id] ? state.item[product.id].quantity : 0;
-        return state.items[product.id]?.quantity || 0;
+        return state.cart.items[product.id]?.quantity || 0;
     })    
 
     let dispatch = useDispatch();
